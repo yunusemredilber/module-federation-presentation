@@ -8,14 +8,17 @@ export default defineConfig({
     pluginReact(),
     pluginSass(),
     pluginModuleFederation({
-      name: 'product_page_consumer',
-      remotes: {
-        header_provider: 'http://localhost:3001/mf-manifest.json',
+      name: 'header_provider',
+      exposes: {
+        './header': './src/header.tsx',
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   html: {
     template: './public/template.html',
+  },
+  server: {
+    port: 3001,
   },
 });

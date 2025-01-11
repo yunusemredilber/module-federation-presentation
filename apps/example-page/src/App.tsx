@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Heart, ShoppingBag, Search, Star, Camera, Menu, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Camera, ChevronLeft, ChevronRight } from 'lucide-react';
+import Header from 'header_provider/header';
 import './App.scss';
 
 function App() {
@@ -18,21 +19,7 @@ function App() {
 
   return (
     <div className="app">
-      <header className="header">
-        <div className="header__left">
-          <button className="menu-btn">
-            <Menu size={22} />
-          </button>
-          <p className="logo">e-commerce</p>
-        </div>
-        <div className="actions">
-          <button><Search size={22} /></button>
-          <button><Heart size={22} /></button>
-          <button><ShoppingBag size={22} /></button>
-        </div>
-      </header>
-      <div className="header-placeholder" />
-
+      <Header />
       <main className="product">
         <div className="product__carousel-container">
           <div className="carousel">
