@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://i.pinimg.com/564x/be/6e/30/be6e30b5f785278644c4e4e019cde02d.jpg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module Federation: Presentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" integrity="sha512-0AUO8B5ll9y1ERV/55xq3HeccBGnvAJQsVGitNac/iQCLyDTGLUBMPqlupIWp/rJg0hV3WWHusXchEIdqFAv1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css" integrity="sha512-NJYOiL4HPnu7QvvGcvHAnVVz2X6qWcTDAH4x3fmUOW/SGUbK46IbzHhQ1KoKDfK2trs5RwUu03Ax9sxjqz1iQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/zenburn.min.css" integrity="sha512-JPxjD2t82edI35nXydY/erE9jVPpqxEJ++6nYEoZEpX2TRsmp2FpZuQqZa+wBCen5U16QZOkMadGXHCfp+tUdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div class="side-by-side">
+            <img src="https://raw.githubusercontent.com/module-federation/core/refs/heads/main/apps/website-new/docs/public/svg.svg" height="250" alt="module federation logo">
+            <h2>Module Federation</h2>
+          </div>
+        </section>
+        <section>
+          <h4>What is Module Federation?</h4>
+          <p class="fragment" style="font-size: 70px;">
+            An <strong>architectural pattern</strong> for partitioning JavaScript applications
+          </p>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            - 📦 Build self-contained modules that can be **independently developed**
+            - ⚡ Share code between multiple projects in a **decentralized way**
+            - 🎯 Flexibility to choose and implement the architecture
+            - 🚀 Dynamic type hints
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Supported Tools & Environments
+            - Webpack 5
+            - Rspack/Rsbuild
+            - Runtime _(Federation Runtime)_
+            - Vite _(partial support)_
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Let's build a simple application
+
+            We will create a product detail page with module federation.
+          </textarea>
+        </section>
+        <section data-auto-animate>
+          <h3>Creating header (producer) app</h3>
+          - pnpm create rsbuild@latest
+          <pre data-id="code-animation">
+            <code class="language-typescript" data-line-numbers>import { defineConfig } from '@rsbuild/core';
+import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
+
+export default defineConfig({
+  plugins: [
+    pluginReact(),
+    pluginSass(),
+  ],
+  html: {
+    template: './public/template.html',
+  },
+  server: {
+    port: 3001,
+  },
+});
+              </code>
+          </pre>
+        </section>
+        <section data-auto-animate>
+          <h3>Creating header (producer) app</h3>
+          - pnpm add @module-federation/rsbuild-plugin
+          <pre data-id="code-animation">
+            <code class="language-typescript" data-line-numbers="4|10|11|12-14|15-25">import { defineConfig } from '@rsbuild/core';
+import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
+import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
+
+export default defineConfig({
+  plugins: [
+    pluginReact(),
+    pluginSass(),
+    pluginModuleFederation({
+      name: 'header_provider',
+      exposes: {
+        './header': './src/header.tsx',
+      },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: false,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: false,
+        },
+      },
+      shareStrategy: 'loaded-first',
+    }),
+  ],
+  html: {
+    template: './public/template.html',
+  },
+  server: {
+    port: 3001,
+  }
+});
+              </code>
+          </pre>
+        </section>
+        <section>
+          <img class="r-stretch" src="/public/header_provider_build_cli.png" alt="">
+        </section>
+        <section>
+          📁 ./header_provider/dist/mf-manifest.json
+          <pre class="r-stretch">
+            <code class="language-typescript" data-line-numbers="2-3|11-15|27|50-67|71-93">{
+  "id": "header_provider",
+  "name": "header_provider",
+  "metaData": {
+    "name": "header_provider",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "header-provider"
+    },
+    "remoteEntry": {
+      "name": "static/js/header_provider.c0b8849d.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "header_provider",
+    "pluginVersion": "0.8.8",
+    "prefetchInterface": false,
+    "publicPath": "/"
+  },
+  "shared": [
+    {
+      "id": "header_provider:react-dom",
+      "name": "react-dom",
+      "version": "19.0.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [
+            "static/js/async/478.06437a24.js"
+          ],
+          "sync": [
+            "static/js/async/382.b4422f09.js",
+            "static/js/async/601.ea318b67.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "header_provider:react",
+      "name": "react",
+      "version": "19.0.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/async/478.06437a24.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "id": "header_provider:header",
+      "name": "header",
+      "assets": {
+        "js": {
+          "sync": [
+            "static/js/async/__federation_expose_header.b4cb211f.js"
+          ],
+          "async": [
+            "static/js/async/478.06437a24.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "static/css/async/__federation_expose_header.4ec63f10.css"
+          ],
+          "async": []
+        }
+      },
+      "path": "./header"
+    }
+  ]
+}
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Configuring consumer app</h3>
+          <p style="font-size: 26px;">pnpm create rsbuild@latest</p>
+          <pre data-id="code-animation">
+            <code class="language-typescript" data-line-numbers="1-28|10-23">import { defineConfig } from '@rsbuild/core';
+import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
+import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
+
+export default defineConfig({
+  plugins: [
+    pluginReact(),
+    pluginSass(),
+    pluginModuleFederation({
+      name: 'product_page_consumer',
+      remotes: {
+        header_provider: 'header_provider@http://localhost:3001/mf-manifest.json'
+      },
+      shared: {
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+      },
+    }),
+  ],
+  html: {
+    template: './public/template.html',
+  }
+});
+              </code>
+          </pre>
+        </section>
+        <section>
+          <h4>Consuming remotely provided component</h4>
+          <p style="font-size: 26px;">./product-page/src/components/app.tsx</p>
+          <pre data-id="code-animation">
+            <code class="language-typescript" data-line-numbers="1-12|1,7">import Header from 'header_provider/header';
+import './app.scss';
+
+function App() {
+  return (
+    &lt;div className=&quot;page&quot;&gt;
+      &lt;Header /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+              </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Source List</h3>
+            <ul>
+              <li>Official Module Federation Website: <a href="https://module-federation.io/">module-federation.io</a></li>
+            </ul>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js" integrity="sha512-sMRSj1Ns64C2OE6VNS7WrV63OHW7dLAvi96CXRoy9AEe/tKF+868fhUJpc5ZKS166lwhe2ArCYjFitLJUY+VWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js" integrity="sha512-xkVKkN0o7xECTHSUZ9zdsBYRXiAKH7CZ3aICpW6aQJZsufVVRLhEBTDjTpC1tPzm+gNZiOeW174zXAB2fOLsTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+      const deck = new Reveal({
+        plugins: [RevealMarkdown, RevealHighlight],
+        slideNumber: true,
+        fragmentInURL: true,
+        history: true,
+      });
+
+      deck.initialize();
+    </script>
+  </body>
+</html>
