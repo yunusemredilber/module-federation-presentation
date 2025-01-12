@@ -40,7 +40,7 @@ jobs:
 #        if: steps.pnpm-cache.outputs.cache-hit != 'true'
 
       - name: Build projects
-        run: BASE_URL="https://yunusemredilber.github.io/react-compiler-presentation" pnpm build
+        run: BASE_URL="https://yunusemredilber.github.io/module-federation-presentation" pnpm build
 
       - name: Inject base tag to index.html
         run: pnpm inject-base
