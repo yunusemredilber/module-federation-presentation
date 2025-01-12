@@ -53,6 +53,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B build
           shopt -s globstar
+          git add .
           git add -f **/dist/ -- ':!**/node_modules/**'
           git commit -m "Deploy build to build branch"
           git push -f origin build
