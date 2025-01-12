@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .pdp-basket-footer {
   position: fixed;
   bottom: 0;
@@ -54,7 +56,7 @@
     transition: background 0.2s;
 
     &:hover {
-      background: darken(#ff6000, 10%);
+      background: color.scale(#ff6000, $lightness: -10%);
     }
   }
 }

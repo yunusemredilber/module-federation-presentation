@@ -2,17 +2,19 @@ import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
-import { getOutputAssetPrefix } from '@repo/module_federation_helpers';
+import { getOutputAssetPrefix, getProviderManifest } from '@repo/module_federation_helpers';
 
 export default defineConfig({
   plugins: [
     pluginReact(),
     pluginSass(),
     pluginModuleFederation({
-      name: 'payment_ui_provider',
+      name: 'product_detail_provider',
       exposes: {
-        './payment-widgets': './src/components/payment-widgets/index.tsx',
-        './pdp-basket-footer': './src/components/pdp-basket-footer/index.tsx',
+        './product-detail': './src/components/product-detail/index.tsx',
+      },
+      remotes: {
+        payment_ui_provider: getProviderManifest('payment_ui_provider', 3002),
       },
       shared: {
         react: {
@@ -31,9 +33,9 @@ export default defineConfig({
     template: './public/template.html',
   },
   server: {
-    port: 3002,
+    port: 3003,
   },
   output: {
-    assetPrefix: getOutputAssetPrefix('payment_ui_provider'),
+    assetPrefix: getOutputAssetPrefix('product_detail_provider'),
   },
 });

@@ -228,6 +228,76 @@ importers:
         specifier: ^8.8.1
         version: 8.15.0(eslint@9.15.0)(typescript@5.7.3)
 
+  apps/product-detail-provider:
+    dependencies:
+      '@module-federation/enhanced':
+        specifier: ^0.8.8
+        version: 0.8.8(@rspack/core@1.1.8(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@repo/module_federation_helpers':
+        specifier: workspace:*
+        version: link:../../packages/module-federation-helpers
+      lucide-react:
+        specifier: ^0.471.0
+        version: 0.471.0(react@19.0.0)
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
+    devDependencies:
+      '@eslint/compat':
+        specifier: ^1.2.0
+        version: 1.2.5(eslint@9.15.0)
+      '@eslint/js':
+        specifier: ^9.12.0
+        version: 9.17.0
+      '@module-federation/rsbuild-plugin':
+        specifier: ^0.8.8
+        version: 0.8.8(@module-federation/enhanced@0.8.8(@rspack/core@1.1.8(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@rsbuild/core@1.1.13)
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@rsbuild/core':
+        specifier: ^1.1.8
+        version: 1.1.13
+      '@rsbuild/plugin-react':
+        specifier: ^1.0.7
+        version: 1.1.0(@rsbuild/core@1.1.13)
+      '@rsbuild/plugin-sass':
+        specifier: ^1.1.2
+        version: 1.1.2(@rsbuild/core@1.1.13)
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.10.5
+      '@types/react':
+        specifier: ^19.0.0
+        version: 19.0.4
+      '@types/react-dom':
+        specifier: ^19.0.0
+        version: 19.0.2(@types/react@19.0.4)
+      eslint:
+        specifier: ^9.12.0
+        version: 9.15.0
+      eslint-plugin-react:
+        specifier: ^7.37.1
+        version: 7.37.2(eslint@9.15.0)
+      eslint-plugin-react-hooks:
+        specifier: ^5.0.0
+        version: 5.0.0(eslint@9.15.0)
+      globals:
+        specifier: ^15.11.0
+        version: 15.12.0
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.3
+      typescript-eslint:
+        specifier: ^8.8.1
+        version: 8.15.0(eslint@9.15.0)(typescript@5.7.3)
+
   packages/eslint-config:
     devDependencies:
       '@eslint/js':

@@ -13,6 +13,7 @@ export default defineConfig({
       remotes: {
         header_provider: getProviderManifest('header_provider', 3001),
         payment_ui_provider: getProviderManifest('payment_ui_provider', 3002),
+        product_detail_provider: getProviderManifest('product_detail_provider', 3003),
       },
       shared: {
         react: {
@@ -22,6 +23,7 @@ export default defineConfig({
           singleton: true,
         },
       },
+      shareStrategy: 'loaded-first',
     }),
   ],
   html: {

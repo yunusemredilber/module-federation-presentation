@@ -1,0 +1,12 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "paths":{
+      "*": ["./@mf-types/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules"
+  ]
+}

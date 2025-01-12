@@ -18,9 +18,11 @@ export default defineConfig({
       shared: {
         react: {
           singleton: true,
+          requiredVersion: false,
         },
         'react-dom': {
           singleton: true,
+          requiredVersion: false,
         },
       },
       shareStrategy: 'loaded-first',
