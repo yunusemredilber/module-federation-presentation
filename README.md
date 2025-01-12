@@ -4,6 +4,8 @@ Presentation URL: [https://yunusemredilber.github.io/module-federation-presentat
 
 The repo contains the presentation and demo apps for the Module Federation talk.
 
+![Presentation Demo Screenshot](./public/presentation-demo-screenshot.png)
+
 ## Demo Apps
 
 ### 1. Development
