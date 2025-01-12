@@ -18,8 +18,8 @@ coverage
 # Turbo
 .turbo
 
-# Vercel
-.vercel
+# IDE
+.idea
 
 # Build Outputs
 .next/

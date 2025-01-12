@@ -23,6 +23,7 @@
     "@rsbuild/core": "^1.1.8",
     "@rsbuild/plugin-react": "^1.0.7",
     "@rsbuild/plugin-sass": "^1.1.2",
+    "@types/node": "^22.10.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.12.0",
