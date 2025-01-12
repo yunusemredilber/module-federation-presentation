@@ -14,7 +14,15 @@ export default defineConfig({
       exposes: {
         './header': './src/header.tsx',
       },
-      shared: ['react', 'react-dom'],
+      shared: {
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+      },
+      shareStrategy: 'loaded-first',
     }),
   ],
   html: {

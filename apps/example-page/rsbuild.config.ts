@@ -15,7 +15,14 @@ export default defineConfig({
       remotes: {
         header_provider: `header_provider@${headerProviderUrl}`,
       },
-      shared: ['react', 'react-dom'],
+      shared: {
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+      },
     }),
   ],
   html: {
