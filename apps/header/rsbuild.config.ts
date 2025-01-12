@@ -3,6 +3,8 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export default defineConfig({
   plugins: [
     pluginReact(),
@@ -20,5 +22,8 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+  },
+  output: {
+    assetPrefix: isDev ? undefined : `${process.env.BASE_URL ?? 'http://localhost:3000'}/apps/header/dist/`,
   },
 });
