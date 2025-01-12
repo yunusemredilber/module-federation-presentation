@@ -1,7 +1,11 @@
 import { Heart, ShoppingBag, Search, Menu, } from 'lucide-react';
 import './header.scss';
 
-function Header() {
+interface HeaderProps {
+  disableFavorites?: boolean;
+}
+
+function Header({ disableFavorites }: HeaderProps) {
   return (
     <>
       <header className="header">
@@ -13,7 +17,7 @@ function Header() {
         </div>
         <div className="actions">
           <button><Search size={22}/></button>
-          <button><Heart size={22}/></button>
+          {!disableFavorites && <button><Heart size={22}/></button>}
           <button><ShoppingBag size={22}/></button>
         </div>
       </header>

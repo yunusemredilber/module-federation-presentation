@@ -256,22 +256,68 @@ export default defineConfig({
         </section>
         <section>
           <h4>Consuming remotely provided component</h4>
-          <p style="font-size: 26px;">./product-page/src/components/app.tsx</p>
-          <pre data-id="code-animation">
-            <code class="language-typescript" data-line-numbers="1-12|1,7">import Header from 'header_provider/header';
+          <div class="r-stack">
+            <div class="fragment">
+              <p style="font-size: 26px;">./product-page/src/components/app.tsx</p>
+              <pre data-id="code-animation">
+                <code class="language-typescript" data-line-numbers="1-13|1,7">import Header from 'header_provider/header';
 import './app.scss';
 
 function App() {
   return (
     &lt;div className=&quot;page&quot;&gt;
       &lt;Header /&gt;
+      &lt;footer&gt;
+        ...
+      &lt;/footer&gt;
     &lt;/div&gt;
   );
 }
-
-export default App;
-              </code>
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <img class="r-stretch" src="/public/mf-asset-loading-example.png" alt="">
+        </section>
+        <section>
+          <p>What about TypeScript support?</p>
+        </section>
+        <section data-auto-animate>
+          <h3>Remote Type Hints</h3>
+          <p>./product-page/tsconfig.json</p>
+          <pre data-id="code-animation">
+            <code class="language-typescript" data-line-numbers="1-12|4-6">{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "paths":{
+      "*": ["./@mf-types/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules"
+  ]
+}
+            </code>
           </pre>
+        </section>
+        <section data-auto-animate>
+          <h3>Remote Type Hints</h3>
+          <img class="r-stretch" src="/public/mf-remote-type-support-example.png" alt="">
+        </section>
+        <section>
+          <h3>Going Further</h3>
+        </section>
+        <section>
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <iframe data-src="/apps/example-page/dist" data-preload width="400" height="600"></iframe>
+            <img class="r-stretch" src="/public/full-mf-flow-diagram.png" height="400" alt="">
+          </div>
+        </section>
+        <section>
+          <img class="r-stretch" src="/public/module-federation-chrome-plugin-screenshot.png" alt="">
         </section>
         <section>
           <h3>Source List</h3>
