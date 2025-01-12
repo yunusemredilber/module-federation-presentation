@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Star, Camera, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from 'header_provider/header';
+import PaymentWidgets from 'payment_ui_provider/payment-widgets';
+import PdpBasketFooter from 'payment_ui_provider/pdp-basket-footer';
 import './App.scss';
 
 function App() {
@@ -75,8 +77,6 @@ function App() {
             </div>
           </div>
         </div>
-
-
         <div className="product__info">
           <div className="category">
             <span>in Smart Bracelets</span>
@@ -100,38 +100,11 @@ function App() {
           <div className="stats">
             <span>968 items added to cart in the last 3 days.</span>
           </div>
-
-          <div className="product__payment">
-            <div className="payment-widget">
-              <div className="payment-widget__icon">💳</div>
-              <div className="payment-widget__content">
-                <p className="payment-widget__title">Pay with cash or card on delivery at the door!</p>
-              </div>
-            </div>
-
-            <div className="payment-widget">
-              <div className="payment-widget__icon">💳</div>
-              <div className="payment-widget__content">
-                <div className="payment-widget__text">
-                  <p>4 interest-free payments</p>
-                  <strong>85.22 AED</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="product-basket-actions-footer">
-            <div className="content">
-              <span className="discount">-40%</span>
-              <div className="price">
-                <span className="amount">340.88 AED</span>
-                <span className="original">569.13</span>
-              </div>
-            </div>
-            <button className="cta">Add To Cart</button>
-          </div>
+          <PaymentWidgets />
         </div>
       </main>
+
+      <PdpBasketFooter />
 
       <footer className="footer">
         <div className="footer__content">

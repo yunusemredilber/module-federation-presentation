@@ -2,6 +2,7 @@ import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
+import { getOutputAssetPrefix } from '@repo/module_federation_helpers';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -32,6 +33,6 @@ export default defineConfig({
     port: 3001,
   },
   output: {
-    assetPrefix: isDev ? undefined : `${process.env.BASE_URL ?? 'http://localhost:3000'}/apps/header/dist/`,
+    assetPrefix: getOutputAssetPrefix('header_provider'),
   },
 });

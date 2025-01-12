@@ -1,0 +1,60 @@
+.pdp-basket-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 8px 15px;
+  border-top: 1px solid #e9e9e9;
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    .discount {
+      font-size: 12px;
+      background: #ff6000;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+
+      .amount {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .original {
+        font-size: 12px;
+        text-decoration: line-through;
+        color: #666;
+      }
+    }
+  }
+
+  .cta {
+    background: #ff6000;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: darken(#ff6000, 10%);
+    }
+  }
+}

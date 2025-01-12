@@ -1,5 +1,5 @@
 {
-  "name": "header",
+  "name": "payment-ui-provider",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@module-federation/enhanced": "^0.8.8",
+    "@repo/module_federation_helpers": "workspace:*",
     "lucide-react": "^0.471.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

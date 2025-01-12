@@ -1,0 +1,34 @@
+.payment-widgets {
+  background-color: white;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  margin-bottom: 15px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+
+  .payment-widget {
+    border: 1px solid #3ea800;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 44%;
+    padding: 8px;
+    width: 100%;
+
+    &:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &__icon {
+      height: 24px;
+    }
+
+    &__content {
+      color: #333;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}
