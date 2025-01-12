@@ -30,6 +30,6 @@ export default defineConfig({
     template: './public/template.html',
   },
   output: {
-    assetPrefix: getOutputAssetPrefix('example-page'),
+    assetPrefix: getOutputAssetPrefix('product-page'),
   },
 });

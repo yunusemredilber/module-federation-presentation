@@ -13,7 +13,7 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'header_provider',
       exposes: {
-        './header': './src/header.tsx',
+        './header': './src/components/header/index.tsx',
       },
       shared: {
         react: {

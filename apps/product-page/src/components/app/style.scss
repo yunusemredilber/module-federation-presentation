@@ -1,0 +1,51 @@
+.app {
+  .footer {
+    background: #f8f8f8;
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+
+    &__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    &__section {
+      h3 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+
+      ul {
+        list-style: none;
+
+        li {
+          margin-bottom: 0.5rem;
+
+          a {
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+
+            &:hover {
+              color: #ff6000;
+            }
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+    }
+  }
+}

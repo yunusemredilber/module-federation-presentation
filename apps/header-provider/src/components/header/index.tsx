@@ -1,11 +1,11 @@
 import { Heart, ShoppingBag, Search, Menu, } from 'lucide-react';
-import './header.scss';
+import './style.scss';
 
 interface HeaderProps {
   disableFavorites?: boolean;
 }
 
-function Header({ disableFavorites }: HeaderProps) {
+function Index({ disableFavorites }: HeaderProps) {
   return (
     <>
       <header className="header">
@@ -13,7 +13,7 @@ function Header({ disableFavorites }: HeaderProps) {
           <button className="menu-btn">
             <Menu size={22}/>
           </button>
-          <p className="logo">e-commerce</p>
+          <p className="logo">e-com.</p>
         </div>
         <div className="actions">
           <button><Search size={22}/></button>
@@ -26,4 +26,4 @@ function Header({ disableFavorites }: HeaderProps) {
   );
 }
 
-export default Header;
+export default Index;

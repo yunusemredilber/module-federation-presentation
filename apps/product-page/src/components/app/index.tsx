@@ -1,7 +1,7 @@
 import Header from 'header_provider/header';
 import ProductDetail from 'product_detail_provider/product-detail';
 import PdpBasketFooter from 'payment_ui_provider/pdp-basket-footer';
-import './App.scss';
+import './style.scss';
 
 function App() {
   return (
@@ -31,14 +31,13 @@ function App() {
           <div className="footer__section">
             <h3>Business</h3>
             <ul>
-              <li><a href="#">Sell on Trendyol</a></li>
               <li><a href="#">Advertise</a></li>
               <li><a href="#">Suppliers</a></li>
             </ul>
           </div>
         </div>
         <div className="footer__bottom">
-          <p>© 2024 Trendyol. All rights reserved.</p>
+          <p>© 2025</p>
         </div>
       </footer>
     </div>
