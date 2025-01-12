@@ -24,20 +24,20 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Cache pnpm dependencies
-        uses: actions/cache@v3
-        id: pnpm-cache
-        with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: pnpm-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-cache-${{ runner.os }}-
+#      - name: Cache pnpm dependencies
+#        uses: actions/cache@v3
+#        id: pnpm-cache
+#        with:
+#          path: |
+#            ~/.pnpm-store
+#            node_modules
+#          key: pnpm-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+#          restore-keys: |
+#            pnpm-cache-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+#        if: steps.pnpm-cache.outputs.cache-hit != 'true'
 
       - name: Build projects
         run: BASE_URL="https://yunusemredilber.github.io/react-compiler-presentation" pnpm build
