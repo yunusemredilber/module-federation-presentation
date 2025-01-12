@@ -1,0 +1,57 @@
+name: Build and Push to Build Branch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: pnpm-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-cache-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: pnpm install
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+
+      - name: Build projects
+        run: BASE_URL="https://yunusemredilber.github.io/react-compiler-presentation" pnpm build
+
+      - name: Inject base tag to index.html
+        run: pnpm inject-base
+
+      - name: Deploy to Build Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B build
+          git add dist -f
+          git commit -m "Deploy build to build branch"
+          git push -f origin build
