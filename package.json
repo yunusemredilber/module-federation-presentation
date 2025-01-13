@@ -2,14 +2,16 @@
   "name": "module-federation-presentation",
   "private": true,
   "scripts": {
-    "build": "turbo build",
     "dev": "turbo dev",
+    "build": "turbo build",
+    "serve": "serve",
     "lint": "turbo lint",
     "inject-base": "npx replace-in-file \"<head>\" \"<head>  <base href='/module-federation-presentation/' />\" ./index.html",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "prettier": "^3.2.5",
+    "serve": "^14.2.4",
     "turbo": "^2.3.3",
     "typescript": "5.5.4"
   },

@@ -10,26 +10,31 @@ The repo contains the presentation and demo apps for the Module Federation talk.
 
 ### 1. Development
 
-Run the following command:
+Start the development server for all applications in `./apps` directory:
 
 ```sh
 pnpm dev
 ```
 
-It will start the development server for all apps in ./apps folder.
-
 ### 2. Production
 
-Run the following command:
+Build all applications in `./apps` directory:
 
 ```sh
 pnpm build
 ```
 
-It will build all apps in ./apps folder.
-You can run [`serve`](https://www.npmjs.com/package/serve) command in the root and visit `http://localhost:3000/apps/example-page/dist/index.html` to see the production build.
+Serve the static files in root directory with [`serve`](https://www.npmjs.com/package/serve) tool:
 
 > Use `BASE_URL` env variable to set the base url for the apps while building.
+
+```sh
+pnpm serve
+```
+
+Visit `http://localhost:3000/apps/example-page/dist/index.html` to see the production build.
+
+> You may want to adjust and execute `pnpm inject-base` script to inject the base url tag if you serve the application within a subdirectory. _(eg: GitHub Pages)_
 
 ## Presentation
 
