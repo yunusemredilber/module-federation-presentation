@@ -2,7 +2,10 @@ import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
-import { getOutputAssetPrefix, getProviderManifest } from '@repo/module_federation_helpers';
+import {
+  getOutputAssetPrefix,
+  getProviderManifest,
+} from '@repo/module_federation_helpers';
 
 export default defineConfig({
   plugins: [

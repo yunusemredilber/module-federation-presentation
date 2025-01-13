@@ -4,7 +4,10 @@ function snakeCaseToKebabCase(snakeCaseStr: string): string {
   return snakeCaseStr.replace(/_/g, '-');
 }
 
-export function getProviderManifest(providerName: string, devPort: number): string {
+export function getProviderManifest(
+  providerName: string,
+  devPort: number,
+): string {
   const isDev = process.env.NODE_ENV === 'development';
 
   if (isDev) {

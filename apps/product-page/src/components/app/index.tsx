@@ -15,24 +15,40 @@ function App() {
           <div className="footer__section">
             <h3>About Us</h3>
             <ul>
-              <li><a href="#">Who We Are</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li>
+                <a href="#">Who We Are</a>
+              </li>
+              <li>
+                <a href="#">Careers</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
             </ul>
           </div>
           <div className="footer__section">
             <h3>Help</h3>
             <ul>
-              <li><a href="#">Shipping Info</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">How to Order</a></li>
+              <li>
+                <a href="#">Shipping Info</a>
+              </li>
+              <li>
+                <a href="#">Returns</a>
+              </li>
+              <li>
+                <a href="#">How to Order</a>
+              </li>
             </ul>
           </div>
           <div className="footer__section">
             <h3>Business</h3>
             <ul>
-              <li><a href="#">Advertise</a></li>
-              <li><a href="#">Suppliers</a></li>
+              <li>
+                <a href="#">Advertise</a>
+              </li>
+              <li>
+                <a href="#">Suppliers</a>
+              </li>
             </ul>
           </div>
         </div>

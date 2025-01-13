@@ -6,7 +6,9 @@ function PaymentWidgets() {
       <div className="payment-widget">
         <div className="payment-widget__icon">💳</div>
         <div className="payment-widget__content">
-          <p className="payment-widget__title">Pay with cash or card on delivery at the door!</p>
+          <p className="payment-widget__title">
+            Pay with cash or card on delivery at the door!
+          </p>
         </div>
       </div>
 

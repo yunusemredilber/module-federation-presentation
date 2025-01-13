@@ -7,7 +7,7 @@
     "serve": "serve",
     "lint": "turbo lint",
     "inject-base": "npx replace-in-file \"<head>\" \"<head>  <base href='/module-federation-presentation/' />\" ./index.html",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\" --single-quote"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
