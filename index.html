@@ -22,19 +22,20 @@
             <h2>Module Federation</h2>
           </div>
         </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## What we will cover
+            - 📦 Building self-contained modules that can be **independently developed**
+            - ⚡ Sharing code between multiple projects in a **decentralized way**
+            - 🎯 Flexibility to choose and implement the architecture
+            - 🚀 Dynamic type hints
+          </textarea>
+        </section>
         <section>
           <h4>What is Module Federation?</h4>
           <p class="fragment" style="font-size: 70px;">
             An <strong>architectural pattern</strong> for partitioning JavaScript applications
           </p>
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-            - 📦 Build self-contained modules that can be **independently developed**
-            - ⚡ Share code between multiple projects in a **decentralized way**
-            - 🎯 Flexibility to choose and implement the architecture
-            - 🚀 Dynamic type hints
-          </textarea>
         </section>
         <section data-markdown>
           <textarea data-template>
@@ -54,7 +55,7 @@
         </section>
         <section data-auto-animate>
           <h3>Creating header (producer) app</h3>
-          - pnpm create rsbuild@latest
+          <p style="font-size: 26px;">pnpm create rsbuild@latest</p>
           <pre data-id="code-animation">
             <code class="language-typescript" data-line-numbers>import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
@@ -77,9 +78,9 @@ export default defineConfig({
         </section>
         <section data-auto-animate>
           <h3>Creating header (producer) app</h3>
-          - pnpm add @module-federation/rsbuild-plugin
+          <p style="font-size: 26px;">pnpm add @module-federation/rsbuild-plugin</p>
           <pre data-id="code-animation">
-            <code class="language-typescript" data-line-numbers="4|10|11|12-14|15-25">import { defineConfig } from '@rsbuild/core';
+            <code class="language-typescript" data-line-numbers="4|7,10|11|12-14|15-25">import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
@@ -120,7 +121,7 @@ export default defineConfig({
           <img class="r-stretch" src="public/header_provider_build_cli.png" alt="">
         </section>
         <section>
-          📁 ./header_provider/dist/mf-manifest.json
+          <p style="font-size: 26px;">📁 ./header_provider/dist/mf-manifest.json</p>
           <pre class="r-stretch">
             <code class="language-typescript" data-line-numbers="2-3|11-15|27|50-67|71-93">{
   "id": "header_provider",
@@ -258,7 +259,7 @@ export default defineConfig({
           <h4>Consuming remotely provided component</h4>
           <div class="r-stack">
             <div class="fragment">
-              <p style="font-size: 26px;">./product-page/src/components/app.tsx</p>
+              <p style="font-size: 26px;">📁 ./product-page/src/components/app.tsx</p>
               <pre data-id="code-animation">
                 <code class="language-typescript" data-line-numbers="1-13|1,7">import Header from 'header_provider/header';
 import './app.scss';
@@ -286,7 +287,7 @@ function App() {
         </section>
         <section data-auto-animate>
           <h3>Remote Type Hints</h3>
-          <p>./product-page/tsconfig.json</p>
+          <p style="font-size: 26px;">📁 ./product-page/tsconfig.json</p>
           <pre data-id="code-animation">
             <code class="language-typescript" data-line-numbers="1-12|4-6">{
   "extends": "@repo/typescript-config/base.json",
