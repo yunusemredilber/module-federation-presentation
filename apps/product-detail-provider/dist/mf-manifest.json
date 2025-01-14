@@ -1,0 +1,101 @@
+{
+  "id": "product_detail_provider",
+  "name": "product_detail_provider",
+  "metaData": {
+    "name": "product_detail_provider",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "product-detail-provider"
+    },
+    "remoteEntry": {
+      "name": "static/js/product_detail_provider.89053958.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "product_detail_provider",
+    "pluginVersion": "0.8.8",
+    "prefetchInterface": false,
+    "publicPath": "https://yunusemredilber.github.io/module-federation-presentation/apps/product-detail-provider/dist/"
+  },
+  "shared": [
+    {
+      "id": "product_detail_provider:react-dom",
+      "name": "react-dom",
+      "version": "19.0.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [
+            "static/js/async/478.b21aaeec.js"
+          ],
+          "sync": [
+            "static/js/async/382.87874265.js",
+            "static/js/async/601.17c282b7.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "product_detail_provider:react",
+      "name": "react",
+      "version": "19.0.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/async/478.b21aaeec.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "federationContainerName": "payment_ui_provider",
+      "moduleName": "payment-widgets",
+      "alias": "payment_ui_provider",
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/payment-ui-provider/dist/mf-manifest.json"
+    }
+  ],
+  "exposes": [
+    {
+      "id": "product_detail_provider:product-detail",
+      "name": "product-detail",
+      "assets": {
+        "js": {
+          "sync": [
+            "static/js/async/__federation_expose_product_detail.7cc7233c.js"
+          ],
+          "async": [
+            "static/js/async/478.b21aaeec.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "static/css/async/__federation_expose_product_detail.d377e3aa.css"
+          ],
+          "async": []
+        }
+      },
+      "path": "./product-detail"
+    }
+  ]
+}

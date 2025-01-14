@@ -1,0 +1,121 @@
+{
+  "id": "payment_ui_provider",
+  "name": "payment_ui_provider",
+  "metaData": {
+    "name": "payment_ui_provider",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "payment-ui-provider"
+    },
+    "remoteEntry": {
+      "name": "static/js/payment_ui_provider.748ecf0a.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "payment_ui_provider",
+    "pluginVersion": "0.8.8",
+    "prefetchInterface": false,
+    "publicPath": "https://yunusemredilber.github.io/module-federation-presentation/apps/payment-ui-provider/dist/"
+  },
+  "shared": [
+    {
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "shareScope": "default",
+      "name": "react-dom",
+      "version": "19.0.0",
+      "eager": false,
+      "id": "payment_ui_provider:react-dom",
+      "assets": {
+        "js": {
+          "async": [
+            "static/js/async/478.e4e23a54.js"
+          ],
+          "sync": [
+            "static/js/async/382.2e2d7db2.js",
+            "static/js/async/601.f62b017a.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "shareScope": "default",
+      "name": "react",
+      "version": "19.0.0",
+      "eager": false,
+      "id": "payment_ui_provider:react",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/async/478.e4e23a54.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./payment-widgets",
+      "id": "payment_ui_provider:payment-widgets",
+      "name": "payment-widgets",
+      "requires": [],
+      "file": "src/components/payment-widgets/index.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "static/js/async/__federation_expose_payment_widgets.73a3e0cb.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [
+            "static/css/async/__federation_expose_payment_widgets.c0bd70d3.css"
+          ],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./pdp-basket-footer",
+      "id": "payment_ui_provider:pdp-basket-footer",
+      "name": "pdp-basket-footer",
+      "requires": [],
+      "file": "src/components/pdp-basket-footer/index.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "static/js/async/__federation_expose_pdp_basket_footer.7df85002.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [
+            "static/css/async/__federation_expose_pdp_basket_footer.3c096928.css"
+          ],
+          "async": []
+        }
+      }
+    }
+  ]
+}

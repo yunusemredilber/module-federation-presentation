@@ -1,0 +1,91 @@
+{
+  "id": "product_page_consumer",
+  "name": "product_page_consumer",
+  "metaData": {
+    "name": "product_page_consumer",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "product-page"
+    },
+    "remoteEntry": {
+      "name": "",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": ".",
+      "api": "."
+    },
+    "globalName": "product_page_consumer",
+    "pluginVersion": "0.8.8",
+    "prefetchInterface": false,
+    "publicPath": "https://yunusemredilber.github.io/module-federation-presentation/apps/product-page/dist/"
+  },
+  "shared": [
+    {
+      "id": "product_page_consumer:react-dom",
+      "name": "react-dom",
+      "version": "19.0.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [
+            "static/js/async/478.e06f7c9d.js"
+          ],
+          "sync": [
+            "static/js/async/382.9221c789.js",
+            "static/js/async/601.9ee70594.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "product_page_consumer:react",
+      "name": "react",
+      "version": "19.0.0",
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/async/478.e06f7c9d.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "federationContainerName": "header_provider",
+      "moduleName": "header",
+      "alias": "header_provider",
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/header-provider/dist/mf-manifest.json"
+    },
+    {
+      "federationContainerName": "product_detail_provider",
+      "moduleName": "product-detail",
+      "alias": "product_detail_provider",
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/product-detail-provider/dist/mf-manifest.json"
+    },
+    {
+      "federationContainerName": "payment_ui_provider",
+      "moduleName": "pdp-basket-footer",
+      "alias": "payment_ui_provider",
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/payment-ui-provider/dist/mf-manifest.json"
+    }
+  ],
+  "exposes": []
+}

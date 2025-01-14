@@ -1,0 +1,102 @@
+{
+  "id": "header_provider",
+  "name": "header_provider",
+  "metaData": {
+    "name": "header_provider",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "header-provider"
+    },
+    "remoteEntry": {
+      "name": "static/js/header_provider.507df7db.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "header_provider",
+    "pluginVersion": "0.8.8",
+    "prefetchInterface": false,
+    "publicPath": "https://yunusemredilber.github.io/module-federation-presentation/apps/header-provider/dist/"
+  },
+  "shared": [
+    {
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "shareScope": "default",
+      "name": "react-dom",
+      "version": "19.0.0",
+      "eager": false,
+      "id": "header_provider:react-dom",
+      "assets": {
+        "js": {
+          "async": [
+            "static/js/async/478.06437a24.js"
+          ],
+          "sync": [
+            "static/js/async/382.633fbef6.js",
+            "static/js/async/601.4d363e52.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "shareScope": "default",
+      "name": "react",
+      "version": "19.0.0",
+      "eager": false,
+      "id": "header_provider:react",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/async/478.06437a24.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./header",
+      "id": "header_provider:header",
+      "name": "header",
+      "requires": [],
+      "file": "src/components/header/index.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "static/js/async/__federation_expose_header.e4b2b511.js"
+          ],
+          "async": [
+            "static/js/async/478.06437a24.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "static/css/async/__federation_expose_header.0808d9d9.css"
+          ],
+          "async": []
+        }
+      }
+    }
+  ]
+}

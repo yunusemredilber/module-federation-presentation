@@ -1,0 +1,109 @@
+{
+  "id": "product_page_consumer",
+  "name": "product_page_consumer",
+  "metaData": {
+    "name": "product_page_consumer",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "product-page"
+    },
+    "remoteEntry": {
+      "name": "",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": ".",
+      "api": "."
+    },
+    "globalName": "product_page_consumer",
+    "pluginVersion": "0.8.8",
+    "prefetchInterface": false,
+    "publicPath": "https://yunusemredilber.github.io/module-federation-presentation/apps/product-page/dist/"
+  },
+  "shared": [
+    {
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "shareScope": "default",
+      "name": "react-dom",
+      "version": "19.0.0",
+      "eager": false,
+      "id": "product_page_consumer:react-dom",
+      "assets": {
+        "js": {
+          "async": [
+            "static/js/async/478.e06f7c9d.js"
+          ],
+          "sync": [
+            "static/js/async/382.9221c789.js",
+            "static/js/async/601.9ee70594.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^19.0.0",
+      "shareScope": "default",
+      "name": "react",
+      "version": "19.0.0",
+      "eager": false,
+      "id": "product_page_consumer:react",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "static/js/async/478.e06f7c9d.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    }
+  ],
+  "remotes": [
+    {
+      "alias": "header_provider",
+      "consumingFederationContainerName": "product_page_consumer",
+      "federationContainerName": "header_provider",
+      "moduleName": "header",
+      "usedIn": [
+        "src/bootstrap.tsx + 3 modules"
+      ],
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/header-provider/dist/mf-manifest.json"
+    },
+    {
+      "alias": "product_detail_provider",
+      "consumingFederationContainerName": "product_page_consumer",
+      "federationContainerName": "product_detail_provider",
+      "moduleName": "product-detail",
+      "usedIn": [
+        "src/bootstrap.tsx + 3 modules"
+      ],
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/product-detail-provider/dist/mf-manifest.json"
+    },
+    {
+      "alias": "payment_ui_provider",
+      "consumingFederationContainerName": "product_page_consumer",
+      "federationContainerName": "payment_ui_provider",
+      "moduleName": "pdp-basket-footer",
+      "usedIn": [
+        "src/bootstrap.tsx + 3 modules"
+      ],
+      "entry": "https://yunusemredilber.github.io/module-federation-presentation/apps/payment-ui-provider/dist/mf-manifest.json"
+    }
+  ],
+  "exposes": []
+}
